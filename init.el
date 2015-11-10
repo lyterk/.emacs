@@ -1,3 +1,9 @@
+;;; Package --- Summary
+;;; This is lyterk's init.el file
+
+;;; Code:
+(set-frame-parameter nil 'fullscreen 'fullboth)
+
 (defvar current-user
        (getenv
 	(if (equal system-type 'windows-nt) "USERNAME" "USER")))
@@ -81,7 +87,7 @@ by Prelude.")
 (when (file-exists-p prelude-personal-dir)
   (message "Loading personal configuration files in %s..." prelude-personal-dir)
   (mapc 'load (directory-files prelude-personal-dir 't "^[^#].*el$")))
-
+n
 (message "Hi  %s!" current-user)
 
 (prelude-eval-after-init
@@ -100,13 +106,8 @@ See URL `https://github.com/FND/jslint-reporter'."
 (add-hook 'js-mode-hook (lambda ()
                           (flycheck-select-checker 'javascript-jslint-reporter)))
 
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+;;; Supposed to be the last line of code in the file. Emacs barked if it wasn't there.
+(provide 'init)
 
-(scroll-bar-mode -1)
-
-(set-face-attribute 'default (selected-frame) :height 87)
-
-(setq x-select-enable-clipboard t)
-
-(global-whitespace-mode -1)
+;;; Commentary:+
+;;; init.el ends here

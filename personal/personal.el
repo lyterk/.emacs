@@ -126,6 +126,9 @@
 (add-hook 'malabar-java-mode-hook 'flycheck-mode)
 (add-hook 'malabar-groovy-mode-hook 'flycheck-mode)
 
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "w3m")
+
 ;;change default browser for 'browse-url'  to w3m
 (setq browse-url-browser-function 'w3m-goto-url-new-session)
 
@@ -162,3 +165,5 @@
    (list (read-string "Enter website address(default: w3m-home):" nil nil w3m-home-page nil )))
   (w3m-goto-url-new-session
    (concat "http://" site)))
+
+(add-hook 'list-diary-entries-hook 'sort-diary-entries t)
